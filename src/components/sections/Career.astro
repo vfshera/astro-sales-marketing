@@ -4,8 +4,8 @@ import Stage from "@components/Stage.astro";
 import { stages } from "@data/data";
 ---
 
-<section id="Career" class="py-[140px] px-[330px] relative">
-  <div class="career-content">
+<section id="Career" class="relative overflow-hidden">
+  <div class="relative z-10 py-[140px] px-[330px]">
     <p class="title mb-10">Deine Karriere</p>
     <p class="paragraph">
       Stillstand ist für uns keine Option! <br />
@@ -15,7 +15,22 @@ import { stages } from "@data/data";
     </p>
   </div>
 
-  <div class="stages mt-[126px] flex flex-col gap-5">
-    {stages.map((stage) => <Stage {...stage} />)}
+  <div
+    class="stages mt-16 pb-20 left-[330px] right-0 relative z-10 flex flex-col gap-5"
+  >
+    {stages.map((stage, i) => <Stage index={i} {...stage} />)}
   </div>
+
+  <div
+    class="absolute z-0 left-0 bottom-0 h-full w-full"
+    style="background-image: url('/images/curve.png');"
+  >
+  </div>
+  <img
+    src="/images/logo.png"
+    height="289"
+    class="absolute left-5 bottom-5 z-10"
+    width="238"
+    alt=""
+  />
 </section>
