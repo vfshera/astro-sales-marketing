@@ -1,1 +1,31 @@
-<header>Header</header>
+---
+import { Image } from "@astrojs/image/components";
+import HeaderLink from "./HeaderLink.astro";
+---
+
+<header
+  id="MainHeader"
+  class="pl-8 pr-16 pt-8 flex justify-between items-center"
+>
+  <a href="/"
+    ><img src="/images/logo.png" width={55} height={60} alt="Logo" />
+  </a>
+
+  <ul class="flex items-center gap-6">
+    <li>
+      <HeaderLink href="#Überuns">Über uns</HeaderLink>
+    </li>
+    <li>
+      <HeaderLink href="#Karriere">Karriere</HeaderLink>
+    </li>
+    <li>
+      <HeaderLink href="#Standorte">Standorte</HeaderLink>
+    </li>
+    <li>
+      <HeaderLink href="#Team">Team</HeaderLink>
+    </li>
+    <li>
+      <HeaderLink href="#Kontakt">Kontakt</HeaderLink>
+    </li>
+  </ul>
+</header>
