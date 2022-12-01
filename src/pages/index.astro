@@ -6,6 +6,7 @@ import Hero from "@components/sections/Hero.astro";
 import Team from "@components/sections/Team.astro";
 import Layout from "@layouts/Layout.astro";
 import ApplicationForm from "@components/ApplicationForm.astro";
+import ApplicationCard from "@components/ApplicationCard.astro";
 ---
 
 <Layout title="Homepage">
@@ -90,7 +91,22 @@ import ApplicationForm from "@components/ApplicationForm.astro";
         ein Kennenlernen vereinbaren!
       </p>
 
-      <!-- TODO: SLIDER -->
+      <!-- APPLICATION SLIDER -->
+      <section id="AplicationSlider" class="splide" aria-label="Slider Images">
+        <div class="splide__track">
+          <section class="splide__list">
+            {
+              ["Werkstudent", "Quereinsteiger", "Kundenberater"].map(
+                (title) => (
+                  <div class="splide__slide">
+                    <ApplicationCard title={title} />
+                  </div>
+                )
+              )
+            }
+          </section>
+        </div>
+      </section>
 
       <ApplicationForm />
     </section>
@@ -99,6 +115,18 @@ import ApplicationForm from "@components/ApplicationForm.astro";
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
+    new Splide("#AplicationSlider", {
+      arrows: false,
+      autoplay: true,
+      perPage: 2.5,
+      pagination: true,
+      gap: 10,
+      type: "loop",
+      classes: {
+        page: "splide__pagination__page shadow  bg-black ",
+      },
+    }).mount();
+
     new Splide("#ImageSlider", {
       arrows: false,
       pagination: false,

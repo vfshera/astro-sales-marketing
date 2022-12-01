@@ -1,0 +1,39 @@
+---
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<div
+  class="application-card p-5 flex flex-col gap-5 my-10 border border-gray-400 rounded-lg transition-all hover:bg-[#f3f4f8]"
+>
+  <p class="font-bold text-3xl">{title}</p>
+  <div class="chips flex gap-1 flex-wrap">
+    <div
+      class="chip rounded-full font-['Comfortaa'] py-1 px-2 text-base border border-gray-400"
+    >
+      Festanstellung
+    </div>
+    <div
+      class="chip rounded-full font-['Comfortaa'] py-1 px-2 text-base border border-gray-400"
+    >
+      40h
+    </div>
+    <div
+      class="chip rounded-full font-['Comfortaa'] py-1 px-2 text-base border border-gray-400"
+    >
+      70.000 €/Jahr
+    </div>
+    <div
+      class="chip rounded-full font-['Comfortaa'] py-1 px-2 text-base border border-gray-400"
+    >
+      + Provisionen
+    </div>
+  </div>
+  <p class="font-['Comfortaa']">
+    Du möchtest in einem jungen, dynamischen und motivierten Team richtig <br />
+    Para machen? <br /> Komm zu uns!
+  </p>
+</div>
