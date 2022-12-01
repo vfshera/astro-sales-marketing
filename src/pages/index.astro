@@ -2,6 +2,7 @@
 import About from "@components/sections/About.astro";
 import Career from "@components/sections/Career.astro";
 import Hero from "@components/sections/Hero.astro";
+import Team from "@components/sections/Team.astro";
 import Layout from "@layouts/Layout.astro";
 ---
 
@@ -12,7 +13,7 @@ import Layout from "@layouts/Layout.astro";
     <!-- ABOUT -->
     <About />
     <!-- IMAGE -->
-    <section class="splide" aria-label="Splide Basic HTML Example">
+    <section class="splide" aria-label="Slider Images">
       <div class="splide__track">
         <section class="splide__list">
           <div
@@ -46,6 +47,23 @@ import Layout from "@layouts/Layout.astro";
     </section>
 
     <Career />
+    <!-- IMAGE -->
+    <section
+      style="background-image: url('/images/quote.webp');"
+      class="h-[600px]"
+    >
+      <div
+        class="overlay h-full w-full flex flex-col justify-center text-white pl-[169px]"
+        style="background: linear-gradient(90.11deg, rgba(17, 37, 70, 0.24) 0.09%, rgba(17, 37, 70, 0.18) 59.35%)"
+      >
+        <p class="text-[40px] leading-[90px] font-bold">
+          “Hier steht ein Zitat von mir ”
+        </p>
+      </div>
+    </section>
+
+    <!-- TEAM -->
+    <Team />
   </main>
 </Layout>
 

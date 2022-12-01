@@ -1,0 +1,13 @@
+---
+interface Props extends astroHTML.JSX.HTMLAttributes {
+  imageUrl: string;
+}
+
+const { class: className, imageUrl } = Astro.props;
+---
+
+<section
+  class:list={["bg-indigo-300", className]}
+  style={`background-image: url('${imageUrl}')`}
+>
+</section>
