@@ -1,0 +1,19 @@
+---
+interface Props extends astroHTML.JSX.InputHTMLAttributes {
+  name: string;
+}
+const { type, name, class: className, ...props } = Astro.props;
+
+const inputName = name.toLowerCase().replaceAll(" ", "-");
+---
+
+<div class="input-group flex flex-col gap-2 w-full">
+  <label for={inputName}>{name}*</label>
+  <input
+    name={inputName}
+    type={type}
+    class={className}
+    {...props}
+    class="border border-[#CFCFCF] py-2 px-5"
+  />
+</div>

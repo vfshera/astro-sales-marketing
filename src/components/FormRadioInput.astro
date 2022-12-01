@@ -1,0 +1,28 @@
+---
+interface Props extends astroHTML.JSX.InputHTMLAttributes {
+  name: string;
+  radios: string[];
+}
+const { name, radios, class: className, ...props } = Astro.props;
+
+const inputName = name.toLowerCase().replaceAll(" ", "-");
+---
+
+<div class="input-group flex flex-col gap-2 w-full">
+  <label for={inputName}>{name}*</label>
+
+  {
+    radios.map((r) => (
+      <label for={r} class="font-['Comfortaa'] w-max ">
+        <input
+          name={inputName}
+          value={r}
+          type="radio"
+          class={className}
+          {...props}
+        />
+        {r}
+      </label>
+    ))
+  }
+</div>

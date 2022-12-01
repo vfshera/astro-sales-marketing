@@ -1,0 +1,33 @@
+---
+import FormInput from "./FormInput.astro";
+import FormRadioInput from "./FormRadioInput.astro";
+import FormSelect from "./FormSelect.astro";
+---
+
+<form
+  action=""
+  class="flex flex-col gap-12 py-10 items-center font-['Comfortaa']"
+>
+  <FormInput name="Vorname" placeholder="vorname" />
+  <FormInput name="Nachname" placeholder="nachname" />
+  <div class="w-full">
+    <a href="" class="underline">Ich möchte ein Bewerberfoto hinzufügen.</a>
+  </div>
+  <FormSelect
+    name="Für welchen Standort bewirbst Du Dich?"
+    options={["USA", "Britain"]}
+  />
+  <FormInput name="Telefon" placeholder="telefon" />
+  <FormRadioInput
+    name="Wann bist Du telefonisch erreichbar?"
+    radios={["9-12 Uhr", "12-18 Uhr", "18-20 Uhr"]}
+  />
+  <FormInput name="Email" placeholder="email" type="email" />
+  <div class="w-full">
+    <a href="" class="underline">Ich möchte meinen Lebenslauf hinzufügen.</a>
+  </div>
+  <button
+    class="bg-[#112546] text-white px-12 text-xl mt-12 py-5 rounded-full w-max"
+    >BEWERBUNG ABSCHICKEN</button
+  >
+</form>
