@@ -1,0 +1,7 @@
+---
+interface Props extends astroHTML.JSX.AnchorHTMLAttributes {}
+
+const props = Astro.props;
+---
+
+<a {...props} class="text-2xl"><slot /></a>
