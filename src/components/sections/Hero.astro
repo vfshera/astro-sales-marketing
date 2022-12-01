@@ -1,0 +1,63 @@
+---
+import { Image } from "@astrojs/image/components";
+import Header from "@components/Header.astro";
+---
+
+<section
+  id="HeroWrapper"
+  style="background-image: url('/images/hero.webp');"
+  class="h-[1117px]"
+>
+  <div
+    class="hero-content text-white relative flex flex-col h-full w-full z-10"
+    style="background: linear-gradient(90.11deg, rgba(17, 37, 70, 0.8) 0.09%, rgba(17, 37, 70, 0.6) 59.35%)"
+  >
+    <Header />
+
+    <div class="upbtn absolute right-8 bottom-8">
+      <button>
+        <svg
+          class="h-12"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          viewBox="0 0 50 50"
+          fill="#FFFFFF"
+        >
+          <path
+            d="M25 2C12.316406 2 2 12.316406 2 25C2 37.683594 12.316406 48 25 48C37.683594 48 48 37.683594 48 25C48 12.316406 37.683594 2 25 2 Z M 35.707031 28.707031C35.511719 28.902344 35.257813 29 35 29C34.742188 29 34.488281 28.902344 34.292969 28.707031L25 19.414063L15.707031 28.707031C15.316406 29.097656 14.683594 29.097656 14.292969 28.707031C13.902344 28.316406 13.902344 27.683594 14.292969 27.292969L24.292969 17.292969C24.683594 16.902344 25.316406 16.902344 25.707031 17.292969L35.707031 27.292969C36.097656 27.683594 36.097656 28.316406 35.707031 28.707031Z"
+            fill="#FFFFFF"></path>
+        </svg>
+      </button>
+    </div>
+    <div class="pl-[214px] min-h-[50%] mt-auto">
+      <h1 class="font-bold text-[75px] leading-[90px]">
+        Exzellent <br />
+        Marketing und Vertrieb
+      </h1>
+
+      <p class="my-12 text-3xl font-['Comfortaa']">“Schön, dass Du da bist!”</p>
+
+      <a
+        href="#"
+        class="font-['Comfortaa'] bg-white rounded-full text-xl text-blue px-12 py-5"
+        >BLITZ BEWERBUNG</a
+      >
+
+      <div class="flex justify-center mt-[151px] py-5">
+        <a href="" class="flex gap-2 items-center"
+          >Erfahre mehr über uns <svg
+            class="h-5"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewBox="0 0 30 30"
+            fill="#FFFFFF"
+          >
+            <path
+              d="M3,12v-2c0-0.386,0.223-0.738,0.572-0.904s0.762-0.115,1.062,0.13L15,17.708l10.367-8.482 c0.299-0.245,0.712-0.295,1.062-0.13C26.779,9.261,27,9.614,27,10v2c0,0.3-0.135,0.584-0.367,0.774l-11,9 c-0.369,0.301-0.898,0.301-1.267,0l-11-9C3.135,12.584,3,12.3,3,12z"
+              fill="#FFFFFF"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
