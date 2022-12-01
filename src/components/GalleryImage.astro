@@ -7,7 +7,18 @@ const { class: className, imageUrl } = Astro.props;
 ---
 
 <section
-  class:list={["bg-indigo-300", className]}
+  class:list={["bg-indigo-300 group", className]}
   style={`background-image: url('${imageUrl}')`}
 >
+  <div
+    class="opacity-0 group-hover:opacity-100 transition-opacity flex flex-col duration-300 h-full w-full"
+    style="background: linear-gradient(90.11deg, rgba(17, 37, 70, 0.8) 0.09%, rgba(17, 37, 70, 0.6) 59.35%)"
+  >
+    <div class="flex flex-col mt-auto p-3">
+      <p class="text-white font-['Comfortaa'] text-2xl">Lukas Treu</p>
+      <p class="text-white font-['Comfortaa'] text-sm">
+        Geschäftsführer der Niederlassung Kassel
+      </p>
+    </div>
+  </div>
 </section>
