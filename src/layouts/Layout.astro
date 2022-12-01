@@ -1,0 +1,36 @@
+---
+import SEO from "@components/SEO.astro";
+import { GoogleFontsOptimizer } from "astro-google-fonts-optimizer";
+import { SITE_DESCRIPTION, SITE_NAME } from "../config";
+
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title = SITE_NAME, description = SITE_DESCRIPTION } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Global Metadata -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+
+    <GoogleFontsOptimizer
+      url={[
+        "https://fonts.googleapis.com/css2?family=Sansita:wght@400;700;800&display=swap",
+        "https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap",
+      ]}
+    />
+
+    <SEO title={title} description={description} />
+  </head>
+  <body>
+    <slot />
+    <style is:global></style>
+  </body>
+</html>
