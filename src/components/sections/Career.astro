@@ -1,0 +1,21 @@
+---
+import Stage from "@components/Stage.astro";
+
+import { stages } from "@data/data";
+---
+
+<section id="Career" class="py-[140px] px-[330px] relative">
+  <div class="career-content">
+    <p class="title mb-10">Deine Karriere</p>
+    <p class="paragraph">
+      Stillstand ist für uns keine Option! <br />
+      Die Entwicklung und weiterbildung unsere Mitarbeiter liegt bei uns an oberster
+      Stelle. Du bestimmst selber wie schnell und wie erfolgreich du dich entwickeln
+      möchtest.
+    </p>
+  </div>
+
+  <div class="stages mt-[126px] flex flex-col gap-5">
+    {stages.map((stage) => <Stage {...stage} />)}
+  </div>
+</section>

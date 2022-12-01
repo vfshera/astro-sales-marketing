@@ -1,0 +1,27 @@
+---
+interface Props {
+  title: string;
+  imageUrl: string;
+  info: string;
+}
+
+const { title, imageUrl, info } = Astro.props;
+---
+
+<div
+  class="stage after:content-[''] after:[background-image:url('/images/line.svg')] after:h-full after:w-full"
+>
+  <p class="text-3xl font-bold bg-[#F3F4F8] py-1 px-2 w-max rounded-t-[20px]">
+    {title}
+  </p>
+  <div class="flex gap-9">
+    <div class="w-[230px] bg-[#F3F4F8] p-3 rounded-b-[20px]">
+      <img src={imageUrl} alt={title.toLowerCase()} />
+    </div>
+    <div
+      class="font-['Comfortaa'] flex flex-col justify-center text-base leading-8 w-[35ch]"
+    >
+      {info}
+    </div>
+  </div>
+</div>
