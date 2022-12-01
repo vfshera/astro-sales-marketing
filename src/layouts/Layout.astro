@@ -31,6 +31,15 @@ const { title = SITE_NAME, description = SITE_DESCRIPTION } = Astro.props;
   </head>
   <body>
     <slot />
-    <style is:global></style>
+    <style is:global>
+      *,
+      *::after,
+      *::before {
+        box-sizing: border-box;
+      }
+      body {
+        font-family: Sansita;
+      }
+    </style>
   </body>
 </html>
