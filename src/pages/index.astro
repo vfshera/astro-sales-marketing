@@ -1,19 +1,21 @@
 ---
 import About from "@components/sections/About.astro";
+import EmployeeFeedback from "@components/sections/EmplyeeFeedback.astro";
 import Career from "@components/sections/Career.astro";
 import Hero from "@components/sections/Hero.astro";
 import Team from "@components/sections/Team.astro";
 import Layout from "@layouts/Layout.astro";
+import ApplicationForm from "@components/ApplicationForm.astro";
 ---
 
 <Layout title="Homepage">
-  <main id="HomePage">
+  <main id="HomePage" class="container mx-auto">
     <!-- HERO -->
     <Hero />
     <!-- ABOUT -->
     <About />
     <!-- IMAGE -->
-    <section class="splide" aria-label="Slider Images">
+    <section id="ImageSlider" class="splide" aria-label="Slider Images">
       <div class="splide__track">
         <section class="splide__list">
           <div
@@ -64,17 +66,50 @@ import Layout from "@layouts/Layout.astro";
 
     <!-- TEAM -->
     <Team />
+
+    <!-- WHAT EMPLOYEES SAY -->
+    <EmployeeFeedback />
+
+    <!-- FIND US IMAGE -->
+    <section
+      style="background-image: url('/images/find-us.webp');"
+      class="h-[600px]"
+    >
+    </section>
+    <!-- MAP -->
+    <section class="py-[140px] flex flex-col gap-[120px] px-[330px]">
+      <p class="title">Hier findest du uns</p>
+      <img src="/images/map.svg" alt="map" />
+    </section>
+
+    <!-- Flash application -->
+    <section class="flex flex-col px-[330px]">
+      <p class="title">Blitz Bewerbung</p>
+      <p class="paragraph mt-10">
+        Keine lust auf einen Langen Bewerbungs Prozess? Dann lass uns noch heute
+        ein Kennenlernen vereinbaren!
+      </p>
+
+      <!-- TODO: SLIDER -->
+
+      <ApplicationForm />
+    </section>
   </main>
 </Layout>
 
-<style></style>
-
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    new Splide(".splide", {
+    new Splide("#ImageSlider", {
       arrows: false,
       pagination: false,
       autoplay: true,
+      type: "loop",
+    }).mount();
+
+    new Splide("#FeedbackSlider", {
+      autoplay: true,
+      gap: 70,
+      padding: 70,
       type: "loop",
     }).mount();
   });
