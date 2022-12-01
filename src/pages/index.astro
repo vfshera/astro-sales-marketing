@@ -10,7 +10,51 @@ import Layout from "@layouts/Layout.astro";
     <Hero />
     <!-- ABOUT -->
     <About />
+    <!-- IMAGE -->
+    <section class="splide" aria-label="Splide Basic HTML Example">
+      <div class="splide__track">
+        <section class="splide__list">
+          <div
+            style="background-image: url('/images/leidenschaftlich.webp');"
+            class="splide__slide h-[600px]"
+          >
+            <div
+              class="overlay h-full w-full flex flex-col justify-center text-white pl-[169px]"
+              style="background: linear-gradient(90.11deg, rgba(17, 37, 70, 0.24) 0.09%, rgba(17, 37, 70, 0.18) 59.35%)"
+            >
+              <p class="text-3xl font-['Comfortaa']">Das sind wir:</p>
+              <p class="text-[75px] leading-[90px] font-bold">
+                Leidenschaftlich
+              </p>
+            </div>
+          </div>
+          <div
+            style="background-image: url('/images/aufmerksam.webp');"
+            class="splide__slide h-[600px]"
+          >
+            <div
+              class="overlay h-full w-full flex flex-col justify-center text-white pl-[169px]"
+              style="background: linear-gradient(90.11deg, rgba(17, 37, 70, 0.24) 0.09%, rgba(17, 37, 70, 0.18) 59.35%)"
+            >
+              <p class="text-3xl font-['Comfortaa']">Dafür stehen wir</p>
+              <p class="text-[75px] leading-[90px] font-bold">Aufmerksam</p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
   </main>
 </Layout>
 
 <style></style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    new Splide(".splide", {
+      arrows: false,
+      pagination: false,
+      autoplay: true,
+      type: "loop",
+    }).mount();
+  });
+</script>
