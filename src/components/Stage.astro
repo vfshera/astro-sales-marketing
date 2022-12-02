@@ -18,8 +18,17 @@ const { title, imageUrl, info, index } = Astro.props;
     {title}
   </p>
   <div class="flex gap-9">
-    <div class="w-[230px] bg-[#F3F4F8] p-3 rounded-b-[20px]">
-      <img src={imageUrl} alt={title.toLowerCase()} />
+    <div class="w-[230px] relative bg-[#F3F4F8] p-3 rounded-b-[20px]">
+      <img src={imageUrl} class="relative z-10" alt={title.toLowerCase()} />
+      {
+        index != 0 && (
+          <img
+            src="/images/line.png"
+            class="absolute  z-0 -left-20 -top-[300px]"
+            alt="line"
+          />
+        )
+      }
     </div>
     <div
       class="font-['Comfortaa'] flex flex-col justify-center text-base leading-8 w-[35ch]"
