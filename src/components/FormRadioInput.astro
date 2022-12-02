@@ -18,7 +18,7 @@ const inputName = name.toLowerCase().replaceAll(" ", "-");
           name={inputName}
           value={r}
           type="radio"
-          class={className}
+          class:list={[className, "rounded"]}
           {...props}
         />
         {r}
