@@ -6,12 +6,14 @@ import FormSelect from "./FormSelect.astro";
 
 <form
   action=""
-  class="flex flex-col gap-8 lg:gap-12 py-10 mb-36 items-center font-['Comfortaa']"
+  class="flex flex-col gap-8 lg:gap-12 py-5 md:py-10 mb-10 md:mb-36 items-center font-['Comfortaa']"
 >
   <FormInput name="Vorname" placeholder="vorname" />
   <FormInput name="Nachname" placeholder="nachname" />
   <div class="w-full">
-    <a href="" class="underline">Ich möchte ein Bewerberfoto hinzufügen.</a>
+    <a href="" class="text-sm md:text-base underline"
+      >Ich möchte ein Bewerberfoto hinzufügen.</a
+    >
   </div>
   <FormSelect
     name="Für welchen Standort bewirbst Du Dich?"
@@ -24,10 +26,12 @@ import FormSelect from "./FormSelect.astro";
   />
   <FormInput name="Email" placeholder="email" type="email" />
   <div class="w-full">
-    <a href="" class="underline">Ich möchte meinen Lebenslauf hinzufügen.</a>
+    <a href="" class="text-sm md:text-base underline"
+      >Ich möchte meinen Lebenslauf hinzufügen.</a
+    >
   </div>
   <button
-    class="bg-[#112546] text-white text-sm px-10 lg:px-12 lg:text-xl mt-12 py-5 rounded-full w-max"
+    class="bg-[#112546] text-white text-xs md:text-sm px-10 lg:px-12 lg:text-xl md:mt-12 py-5 rounded-full w-full md:w-max"
     >BEWERBUNG ABSCHICKEN</button
   >
 </form>
