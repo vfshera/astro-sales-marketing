@@ -1,31 +1,39 @@
+---
+interface Props extends Contact {}
+
+const contact = Astro.props;
+
+console.log(contact);
+---
+
 <div
-  class="contact-card bg-white p-5 rounded-lg flex flex-col gap-2.5 items-center"
+  class="contact-card bg-white p-5 rounded-2xl flex flex-col border border-gray-300 gap-2.5 items-center"
 >
-  <p class="text-[32px] font-bold">Kassel</p>
+  <p class="text-[32px] font-bold">{contact.headText}</p>
   <div class="flex items-center gap-3 my-2.5 font-['Comofortaa']">
-    <img src="" alt="Profile image" />
+    <img
+      src={contact.imageUrl}
+      class="rounded-full"
+      alt={`${contact.name} images`}
+    />
     <p>
-      Lukas Treu <br />
-      Falderbaumstraße 9A <br />
-      34123 Kassel
+      {contact.name}<br />
+      {contact.address}
     </p>
   </div>
 
   <div class="flex flex-col gap-2 my-2.5">
-    <a class="flex items-center gap-2" href="tel:+0179-4219073">
-      <img src="/phone.svg" alt="" />
-      0179-4219073
+    <a class="flex items-center gap-2" href={`tel:+${contact.tel}`}>
+      <img src="/phone.svg" alt="phone" />
+      {contact.phone}
     </a>
-    <a class="flex items-center gap-2" href="tel:+0561-82023829">
-      <img src="/tel.svg" alt="" />
-      0561-82023829
+    <a class="flex items-center gap-2" href={`tel:+${contact.tel}`}>
+      <img src="/tel.svg" alt="tel" />
+      {contact.tel}
     </a>
-    <a
-      class="flex items-center gap-2"
-      href="mailto:bewerbung@Exzellent-Marketing.de"
-    >
-      <img src="/mail.svg" alt="" />
-      bewerbung@Exzellent-Marketing.de
+    <a class="flex items-center gap-2" href={`mailto:${contact.email}`}>
+      <img src="/mail.svg" alt="email" />
+      {contact.email}
     </a>
   </div>
 
@@ -37,19 +45,19 @@
   <div class="grid grid-cols-2 gap-2 w-full">
     <a
       class="flex items-center gap-2 justify-center py-2 rounded-full border-2 border-[#112546]"
-      href="#"><img src="/location.svg" alt="" /> Route</a
+      href="#"><img src="/location.svg" alt="location" /> Route</a
     >
     <a
       class="flex items-center gap-2 justify-center py-2 rounded-full border-2 border-[#112546]"
-      href="#"><img src="/mobile.svg" alt="" /> Anrufen</a
+      href="#"><img src="/mobile.svg" alt="mobile" /> Anrufen</a
     >
     <a
       class="flex items-center gap-2 justify-center py-2 rounded-full border-2 border-[#112546]"
-      href="#"><img src="/phone2.svg" alt="" /> Anrufen</a
+      href="#"><img src="/phone2.svg" alt="phone" /> Anrufen</a
     >
     <a
       class="flex items-center gap-2 justify-center py-2 rounded-full border-2 border-[#112546]"
-      href="#"><img src="/mail2.svg" alt="" /> E-Mail</a
+      href="#"><img src="/mail2.svg" alt="mail" /> E-Mail</a
     >
   </div>
 </div>

@@ -8,6 +8,7 @@ import Layout from "@layouts/Layout.astro";
 import ApplicationForm from "@components/ApplicationForm.astro";
 import ApplicationCard from "@components/ApplicationCard.astro";
 import ContactCard from "@components/ContactCard.astro";
+import { contacts } from "@data/data";
 ---
 
 <Layout title="Homepage">
@@ -119,22 +120,16 @@ import ContactCard from "@components/ContactCard.astro";
     </section>
 
     <!-- KONTAKT -->
-    <section class="bg-[#f3f4f8] py-[110px] pl-[170px]">
+    <section class="bg-[#f3f4f8] py-[110px] flex flex-col gap-10 pl-[170px]">
       <p class="font-bold text-[60px]">Kontakt</p>
       <!-- CONTACT SLIDER -->
       <section id="ContactSlider" class="splide" aria-label="contacts">
         <div class="splide__track">
           <section class="splide__list">
             {
-              [
-                "Werkstudent",
-                "Quereinsteiger",
-                "Kundenberater",
-                "Quereinsteiger",
-                "Kundenberater",
-              ].map((title) => (
+              contacts.map((contact) => (
                 <div class="splide__slide">
-                  <ContactCard />
+                  <ContactCard {...contact} />
                 </div>
               ))
             }
@@ -163,7 +158,7 @@ import ContactCard from "@components/ContactCard.astro";
       autoplay: true,
       perPage: 4,
       pagination: false,
-      gap: 10,
+      gap: 24,
       type: "loop",
     }).mount();
 
