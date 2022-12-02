@@ -4,14 +4,16 @@ interface Props extends IStage {
 }
 
 const { title, imageUrl, info, index } = Astro.props;
+
+const isEven = (index + 1) % 2 == 0;
 ---
 
 <div
   class:list={[
-    "stage  w-max  ",
-    { "ml-[5%] lg:ml-[10%]": index === 1 },
-    { "ml-[10%] lg:ml-[20%]": index === 2 },
-    { "ml-[15%] lg:ml-[30%]": index === 3 },
+    "stage  w-max  group flex flex-col even:items-end",
+    { "md:ml-[5%] lg:ml-[10%]": index === 1 },
+    { "md:ml-[10%] lg:ml-[20%]": index === 2 },
+    { "md:ml-[15%] lg:ml-[30%]": index === 3 },
   ]}
 >
   <p
@@ -19,9 +21,11 @@ const { title, imageUrl, info, index } = Astro.props;
   >
     {title}
   </p>
-  <div class="flex gap-9">
+  <div
+    class="flex flex-col group-even:items-end md:group-even:items-start md:flex-row gap-9"
+  >
     <div
-      class="w-[150px] lg:w-[230px] relative bg-[#F3F4F8] p-3 rounded-b-[20px]"
+      class="w-[200px] md:w-[150px] lg:w-[230px] relative bg-[#F3F4F8] p-3 rounded-b-[20px]"
     >
       <img src={imageUrl} class="relative z-10" alt={title.toLowerCase()} />
       {
@@ -33,9 +37,24 @@ const { title, imageUrl, info, index } = Astro.props;
           />
         )
       }
+      <img
+        src="/images/line2.svg"
+        class:list={[
+          "absolute md:hidden z-0 h-[300%] -top-[50%]",
+          { "-right-[90%]": !isEven },
+          { "-left-[90%] scale-x-[-1]": isEven },
+          { hidden: index == 3 },
+        ]}
+        alt="line"
+      />
     </div>
     <div
-      class="font-['Comfortaa'] flex flex-col justify-center text-sm lg:text-base leading-6 lg:leading-8 w-[50ch] lg:w-[35ch]"
+      class:list={[
+        "font-['Comfortaa'] flex flex-col justify-center text-xs md:text-sm lg:text-base leading-5 md:leading-6 lg:leading-8 max-w-[55ch] md:max-w-[50ch] lg:max-w-[35ch]",
+        { "text-right md:text-left": isEven },
+        { "pr-2": !isEven },
+        { "pl-2": isEven },
+      ]}
     >
       {info}
     </div>

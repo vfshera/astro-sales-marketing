@@ -16,13 +16,13 @@ import { stages } from "@data/data";
   </div>
 
   <div
-    class="stages mt-5 lg:mt-16 pb-28 lg:pb-20 left-20 lg:left-[330px] right-0 relative z-10 flex flex-col gap-10 lg:gap-5"
+    class="stages mt-5 lg:mt-16 pb-28 lg:pb-20 left-5 md:left-20 lg:left-[330px] right-0 relative z-10 flex flex-col gap-10 lg:gap-5"
   >
     {stages.map((stage, i) => <Stage index={i} {...stage} />)}
   </div>
 
   <div
-    class="absolute z-0 left-0 bottom-0 h-2/5 lg:h-full bg-contain bg-no-repeat w-full"
+    class="absolute hidden md:block z-0 left-0 bottom-0 h-2/5 lg:h-full bg-contain bg-no-repeat w-full"
     style="background-image: url('/images/curve.png');"
   >
   </div>
