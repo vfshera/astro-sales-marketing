@@ -5,8 +5,8 @@ import { stages } from "@data/data";
 ---
 
 <section id="Career" class="relative overflow-hidden">
-  <div class="relative z-10 py-[140px] px-[330px]">
-    <p class="title mb-10">Deine Karriere</p>
+  <div class="relative z-10 py-16 lg:py-[140px] px-6 md:px-20 lg:px-[330px]">
+    <p class="title mb-7 lg:mb-10">Deine Karriere</p>
     <p class="paragraph">
       Stillstand ist für uns keine Option! <br />
       Die Entwicklung und weiterbildung unsere Mitarbeiter liegt bei uns an oberster
@@ -16,21 +16,19 @@ import { stages } from "@data/data";
   </div>
 
   <div
-    class="stages mt-16 pb-20 left-[330px] right-0 relative z-10 flex flex-col gap-5"
+    class="stages mt-5 lg:mt-16 pb-28 lg:pb-20 left-20 lg:left-[330px] right-0 relative z-10 flex flex-col gap-10 lg:gap-5"
   >
     {stages.map((stage, i) => <Stage index={i} {...stage} />)}
   </div>
 
   <div
-    class="absolute z-0 left-0 bottom-0 h-full w-full"
+    class="absolute z-0 left-0 bottom-0 h-2/5 lg:h-full bg-contain bg-no-repeat w-full"
     style="background-image: url('/images/curve.png');"
   >
   </div>
   <img
     src="/images/logo.png"
-    height="289"
-    class="absolute left-10 bottom-10 z-10"
-    width="238"
-    alt=""
+    class="absolute h-[100px] lg:h-[289px] left-5 lg:left-10 bottom-5 lg:bottom-10 z-10"
+    alt="logo"
   />
 </section>

@@ -12,7 +12,7 @@ import { contacts } from "@data/data";
 ---
 
 <Layout title="Homepage">
-  <main id="HomePage" class="container mx-auto">
+  <main id="HomePage" class="lg:container mx-auto">
     <!-- HERO -->
     <Hero />
     <!-- ABOUT -->
@@ -23,28 +23,34 @@ import { contacts } from "@data/data";
         <section class="splide__list">
           <div
             style="background-image: url('/images/leidenschaftlich.webp');"
-            class="splide__slide h-[600px]"
+            class="splide__slide h-[400px] lg:h-[600px]"
           >
             <div
-              class="overlay h-full w-full flex flex-col justify-center text-white pl-[169px]"
+              class="overlay h-full w-full flex flex-col justify-center text-white pl-20 lg:pl-[169px]"
               style="background: linear-gradient(90.11deg, rgba(17, 37, 70, 0.24) 0.09%, rgba(17, 37, 70, 0.18) 59.35%)"
             >
-              <p class="text-3xl font-['Comfortaa']">Das sind wir:</p>
-              <p class="text-[75px] leading-[90px] font-bold">
+              <p class="text-2xl lg:text-3xl font-['Comfortaa']">
+                Das sind wir:
+              </p>
+              <p class="text-5xl lg:text-[75px] lg:leading-[90px] font-bold">
                 Leidenschaftlich
               </p>
             </div>
           </div>
           <div
             style="background-image: url('/images/aufmerksam.webp');"
-            class="splide__slide h-[600px]"
+            class="splide__slide h-[400px] lg:h-[600px]"
           >
             <div
-              class="overlay h-full w-full flex flex-col justify-center text-white pl-[169px]"
+              class="overlay h-full w-full flex flex-col justify-center text-white pl-20 lg:pl-[169px]"
               style="background: linear-gradient(90.11deg, rgba(17, 37, 70, 0.24) 0.09%, rgba(17, 37, 70, 0.18) 59.35%)"
             >
-              <p class="text-3xl font-['Comfortaa']">Dafür stehen wir</p>
-              <p class="text-[75px] leading-[90px] font-bold">Aufmerksam</p>
+              <p class="text-2xl lg:text-3xl font-['Comfortaa']">
+                Dafür stehen wir
+              </p>
+              <p class="text-5xl lg:text-[75px] lg:leading-[90px] font-bold">
+                Aufmerksam
+              </p>
             </div>
           </div>
         </section>
@@ -55,15 +61,22 @@ import { contacts } from "@data/data";
     <!-- IMAGE -->
     <section
       style="background-image: url('/images/quote.webp');"
-      class="h-[600px]"
+      class="h-[300px] md:h-[400px] lg:h-[600px] bg-center md:bg-right lg:bg-center"
     >
       <div
-        class="overlay h-full w-full flex flex-col justify-center text-white pl-[169px]"
+        class="overlay h-full w-full flex flex-col justify-center text-white pl-6 md:pl-20 lg:pl-[169px]"
         style="background: linear-gradient(90.11deg, rgba(17, 37, 70, 0.24) 0.09%, rgba(17, 37, 70, 0.18) 59.35%)"
       >
-        <p class="text-[40px] leading-[90px] font-bold">
+        <p class="hidden md:block text-[40px] leading-[90px] font-bold">
           “Hier steht ein Zitat von mir ”
         </p>
+
+        <div class="md:hidden mt-auto pb-5">
+          <p class="font-bold text-[34px]">Karriere bei uns!</p>
+          <p class="font-['Comfortaa']">
+            Wer spaß beider Arbeit hat muss nie wieder arbeiten!
+          </p>
+        </div>
       </div>
     </section>
 
@@ -76,20 +89,22 @@ import { contacts } from "@data/data";
     <!-- FIND US IMAGE -->
     <section
       style="background-image: url('/images/find-us.webp');"
-      class="h-[600px]"
+      class="h-[400px] lg:h-[600px]"
     >
     </section>
 
     <!-- MAP -->
-    <section class="py-[140px] flex flex-col gap-[120px] px-[330px]">
+    <section
+      class="py-20 lg:py-[140px] flex flex-col gap-20 lg:gap-[120px] px-20 lg:px-[330px]"
+    >
       <p class="title">Hier findest du uns</p>
-      <img src="/images/map.svg" alt="map" />
+      <img src="/images/map.svg" class="w-3/4 mx-auto lg:w-full" alt="map" />
     </section>
 
     <!-- Flash application -->
-    <section class="flex flex-col relative px-[330px]">
+    <section class="flex flex-col relative px-20 lg:px-[330px]">
       <p class="title">Blitz Bewerbung</p>
-      <p class="paragraph mt-10">
+      <p class="paragraph mt-5 lg:mt-10">
         Keine lust auf einen Langen Bewerbungs Prozess? Dann lass uns noch heute
         ein Kennenlernen vereinbaren!
       </p>
@@ -114,15 +129,17 @@ import { contacts } from "@data/data";
       <ApplicationForm />
 
       <div
-        class="absolute z-0 left-0 bottom-0 bg-contain bg-no-repeat h-full w-full"
+        class="absolute z-0 left-0 bottom-0 bg-contain bg-no-repeat h-2/5 lg:h-full w-full"
         style="background-image: url('/images/curve-2.png');"
       >
       </div>
     </section>
 
     <!-- KONTAKT -->
-    <section class="bg-[#f3f4f8] py-[110px] flex flex-col gap-10 pl-[170px]">
-      <p class="font-bold text-[60px]">Kontakt</p>
+    <section
+      class="bg-[#f3f4f8] py-10 md:py-24 lg:py-[110px] flex flex-col gap-10 pl-5 md:pl-20 lg:pl-[170px]"
+    >
+      <p class="font-bold text-4xl lg:text-5xl lg:text-[60px]">Kontakt</p>
       <!-- CONTACT SLIDER -->
       <section id="ContactSlider" class="splide" aria-label="contacts">
         <div class="splide__track">
@@ -157,10 +174,20 @@ import { contacts } from "@data/data";
     new Splide("#ContactSlider", {
       arrows: false,
       autoplay: true,
-      perPage: 4,
+      perPage: 1,
+      perMove: 1,
       pagination: false,
       gap: 24,
       type: "loop",
+      mediaQuery: "min",
+      breakpoints: {
+        768: {
+          perPage: 2,
+        },
+        1024: {
+          perPage: 4,
+        },
+      },
     }).mount();
 
     new Splide("#ImageSlider", {

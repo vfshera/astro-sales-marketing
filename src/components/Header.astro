@@ -1,17 +1,18 @@
 ---
-import { Image } from "@astrojs/image/components";
 import HeaderLink from "./HeaderLink.astro";
 ---
 
 <header
   id="MainHeader"
-  class="pl-8 pr-16 pt-8 flex justify-between items-center"
+  class="px-5 lg:pl-8 lg:pr-16 pt-8 flex justify-between items-center"
 >
-  <a href="/"
-    ><img src="/images/logo.png" width={55} height={60} alt="Logo" />
-  </a>
+  <a href="/"><img src="/images/logo.png" class="h-10 md:h-12" alt="Logo" /></a>
 
-  <ul class="flex items-center gap-6">
+  <button>
+    <img src="/menu.svg" class="h-5" alt="menu" />
+  </button>
+
+  <ul class="hidden md:flex items-center gap-6">
     <li>
       <HeaderLink href="#Überuns">Über uns</HeaderLink>
     </li>

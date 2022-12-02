@@ -9,29 +9,33 @@ const { title, imageUrl, info, index } = Astro.props;
 <div
   class:list={[
     "stage  w-max  ",
-    { "ml-[10%]": index === 1 },
-    { "ml-[20%]": index === 2 },
-    { "ml-[30%]": index === 3 },
+    { "ml-[5%] lg:ml-[10%]": index === 1 },
+    { "ml-[10%] lg:ml-[20%]": index === 2 },
+    { "ml-[15%] lg:ml-[30%]": index === 3 },
   ]}
 >
-  <p class="text-3xl font-bold bg-[#F3F4F8] py-1 px-2 w-max rounded-t-[20px]">
+  <p
+    class="text-xl lg:text-3xl font-bold bg-[#F3F4F8] px-3 py-1 lg:px-2 w-max rounded-t-[20px]"
+  >
     {title}
   </p>
   <div class="flex gap-9">
-    <div class="w-[230px] relative bg-[#F3F4F8] p-3 rounded-b-[20px]">
+    <div
+      class="w-[150px] lg:w-[230px] relative bg-[#F3F4F8] p-3 rounded-b-[20px]"
+    >
       <img src={imageUrl} class="relative z-10" alt={title.toLowerCase()} />
       {
         index != 0 && (
           <img
             src="/images/line.png"
-            class="absolute  z-0 -left-20 -top-[300px]"
+            class="absolute hidden lg:block  z-0  -left-20 -top-[300px]"
             alt="line"
           />
         )
       }
     </div>
     <div
-      class="font-['Comfortaa'] flex flex-col justify-center text-base leading-8 w-[35ch]"
+      class="font-['Comfortaa'] flex flex-col justify-center text-sm lg:text-base leading-6 lg:leading-8 w-[50ch] lg:w-[35ch]"
     >
       {info}
     </div>

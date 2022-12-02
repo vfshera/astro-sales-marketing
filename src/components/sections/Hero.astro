@@ -1,12 +1,11 @@
 ---
-import { Image } from "@astrojs/image/components";
 import Header from "@components/Header.astro";
 ---
 
 <section
   id="HeroWrapper"
   style="background-image: url('/images/hero.webp');"
-  class="h-[1117px]"
+  class="h-screen md:h-[1117px]"
 >
   <div
     class="hero-content text-white relative flex flex-col h-full w-full z-10"
@@ -14,10 +13,10 @@ import Header from "@components/Header.astro";
   >
     <Header />
 
-    <div class="upbtn absolute right-8 bottom-8">
+    <div class="upbtn absolute right-4 md:right-8 bottom-4 md:bottom-8">
       <button>
         <svg
-          class="h-12"
+          class="h-9 md:h-12"
           xmlns="http://www.w3.org/2000/svg"
           xmlns:xlink="http://www.w3.org/1999/xlink"
           viewBox="0 0 50 50"
@@ -29,21 +28,27 @@ import Header from "@components/Header.astro";
         </svg>
       </button>
     </div>
-    <div class="px-[214px] min-h-[50%] mt-auto">
-      <h1 class="font-bold text-[75px] leading-[90px]">
+    <div class="px-5 md:px-20 lg:px-[214px] min-h-[50%] mt-auto">
+      <h1
+        class="font-bold text-4xl md:text-[75px] leading-[48px] md:leading-[90px]"
+      >
         Exzellent <br />
         Marketing und Vertrieb
       </h1>
 
-      <p class="my-12 text-3xl font-['Comfortaa']">“Schön, dass Du da bist!”</p>
+      <p
+        class="my-10 md:my-12 text-xl md:text-2xl lg:text-3xl font-['Comfortaa']"
+      >
+        “Schön, dass Du da bist!”
+      </p>
 
       <a
         href="#"
-        class="font-['Comfortaa'] bg-white rounded-full text-xl text-blue px-12 py-5"
+        class="font-['Comfortaa'] bg-white rounded-full text-base md:text-lg lg:text-xl text-blue px-5 md:px-12 py-2.5 md:py-5"
         >BLITZ BEWERBUNG</a
       >
 
-      <div class="flex justify-center mt-[151px] py-5">
+      <div class="flex justify-center mt-20 md:mt-[151px] py-5">
         <a href="" class="flex gap-2 items-center"
           >Erfahre mehr über uns <svg
             class="h-5"
