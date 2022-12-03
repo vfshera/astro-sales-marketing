@@ -2,10 +2,10 @@
 import ApplicationCard from "./ApplicationCard.astro";
 ---
 
-<section id="ApplicationStacks" class="relative mt-10 mb-24">
+<section id="ApplicationStacks" class="relative mt-10 mb-28 md:hidden">
   {
     ["Werkstudent", "Quereinsteiger", "Kundenberater"].map((title) => (
-      <div class="stack cursor-pointer">
+      <div id={title.replaceAll(" ", "")} class="stack cursor-pointer">
         <ApplicationCard title={title} />
       </div>
     ))
