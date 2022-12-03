@@ -83,21 +83,30 @@ import ApplicationCard from "./ApplicationCard.astro";
 </style>
 
 <script>
+  let onTransition = false;
+  //this prevent fast clicking from breaking
+
   function shuffle() {
-    const stackContainer = document.querySelector("#ApplicationStacks");
-    const firstEl = document.querySelector(".stack");
+    if (!onTransition) {
+      onTransition = true;
+      //if the transition is finished
+      const stackContainer = document.querySelector("#ApplicationStacks");
+      const firstEl = document.querySelector(".stack");
 
-    firstEl.classList.remove("drop");
-    firstEl.classList.remove("enter");
-    firstEl.classList.add("leave");
+      firstEl.classList.remove("drop");
+      firstEl.classList.remove("enter");
+      firstEl.classList.add("leave");
 
-    setTimeout(() => {
-      stackContainer.removeChild(stackContainer.firstElementChild);
-      stackContainer.firstElementChild.classList.add("drop");
-      stackContainer.appendChild(firstEl);
-      stackContainer.lastElementChild.classList.remove("leave");
-      stackContainer.lastElementChild.classList.add("enter");
-    }, 400);
+      setTimeout(() => {
+        stackContainer.removeChild(stackContainer.firstElementChild);
+        stackContainer.firstElementChild.classList.add("drop");
+        stackContainer.appendChild(firstEl);
+        stackContainer.lastElementChild.classList.remove("leave");
+        stackContainer.lastElementChild.classList.add("enter");
+
+        onTransition = false;
+      }, 400);
+    }
   }
 
   document
