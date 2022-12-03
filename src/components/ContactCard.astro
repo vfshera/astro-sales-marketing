@@ -1,14 +1,23 @@
 ---
-interface Props extends Contact {}
+interface Props extends Contact {
+  isAccordion?: boolean;
+}
 
-const contact = Astro.props;
+const { isAccordion = false, ...contact } = Astro.props;
 ---
 
 <div
-  class="contact-card bg-white p-5 rounded-2xl flex flex-col border border-gray-300 gap-2.5 items-center"
+  class:list={[
+    "contact-card  p-5 flex flex-col  gap-2.5 items-center",
+    { "bg-white border-gray-300 border rounded-2xl ": !isAccordion },
+  ]}
 >
-  <p class="text-3xl lg:text-[32px] font-bold">{contact.headText}</p>
-  <div class="flex items-center gap-3 my-2.5 font-['Comofortaa']">
+  {
+    !isAccordion && (
+      <p class="text-3xl lg:text-[32px] font-bold">{contact.headText}</p>
+    )
+  }
+  <div class="flex items-center gap-3 my-2.5 font-['Comfortaa']">
     <img
       src={contact.imageUrl}
       class="rounded-full"
@@ -20,7 +29,7 @@ const contact = Astro.props;
     </p>
   </div>
 
-  <div class="flex flex-col gap-2 my-2.5">
+  <div class="flex flex-col gap-2 my-2.5 font-['Comfortaa']">
     <a class="flex items-center gap-2" href={`tel:+${contact.tel}`}>
       <img src="/phone.svg" alt="phone" />
       {contact.phone}
@@ -35,27 +44,83 @@ const contact = Astro.props;
     </a>
   </div>
 
-  <a
-    href="#"
-    class="bg-[#112546] py-2 w-full flex justify-center text-white rounded-full"
-    >Blitz-Bewerbung!</a
-  >
-  <div class="grid grid-cols-2 gap-2 w-full">
-    <a
-      class="flex items-center gap-2 justify-center py-2 rounded-full border-2 border-[#112546]"
-      href="#"><img src="/location.svg" alt="location" /> Route</a
-    >
-    <a
-      class="flex items-center gap-2 justify-center py-2 rounded-full border-2 border-[#112546]"
-      href="#"><img src="/mobile.svg" alt="mobile" /> Anrufen</a
-    >
-    <a
-      class="flex items-center gap-2 justify-center py-2 rounded-full border-2 border-[#112546]"
-      href="#"><img src="/phone2.svg" alt="phone" /> Anrufen</a
-    >
-    <a
-      class="flex items-center gap-2 justify-center py-2 rounded-full border-2 border-[#112546]"
-      href="#"><img src="/mail2.svg" alt="mail" /> E-Mail</a
-    >
-  </div>
+  {
+    !isAccordion && (
+      <a
+        href="#"
+        class="bg-[#112546] py-2 w-full flex font-['Comfortaa'] justify-center text-white rounded-full"
+      >
+        Blitz-Bewerbung!
+      </a>
+    )
+  }
+  {
+    isAccordion && (
+      <section
+        id="AccordionSlider"
+        class="flex font-['Comfortaa'] items-center overflow-y-scroll max-w-[100vw] gap-3"
+      >
+        <a
+          href="#"
+          class="bg-[#112546] py-2 px-6 whitespace-nowrap w-full flex justify-center text-white rounded-full"
+        >
+          Blitz-Bewerbung!
+        </a>
+        <a
+          class="flex w-max items-center gap-2 justify-center py-2 px-6 rounded-full border-2 border-[#112546]"
+          href="#"
+        >
+          <img src="/location.svg" alt="location" /> Route
+        </a>
+        <a
+          class="flex w-max items-center gap-2 justify-center py-2 px-6 rounded-full border-2 border-[#112546]"
+          href="#"
+        >
+          <img src="/mobile.svg" alt="mobile" /> Anrufen
+        </a>
+        <a
+          class="flex w-max items-center gap-2 justify-center py-2 px-6 rounded-full border-2 border-[#112546]"
+          href="#"
+        >
+          <img src="/phone2.svg" alt="phone" /> Anrufen
+        </a>
+        <a
+          class="flex w-max items-center gap-2 justify-center py-2 px-6 rounded-full border-2 border-[#112546]"
+          href="#"
+        >
+          <img src="/mail2.svg" alt="mail" /> E-Mail
+        </a>
+      </section>
+    )
+  }
+  {
+    !isAccordion && (
+      <div class="grid grid-cols-2 gap-2 font-['Comfortaa'] w-full">
+        <a
+          class="flex items-center gap-2 justify-center py-2 rounded-full border-2 border-[#112546]"
+          href="#"
+        >
+          <img src="/location.svg" alt="location" /> Route
+        </a>
+        <a
+          class="flex items-center gap-2 justify-center py-2 rounded-full border-2 border-[#112546]"
+          href="#"
+        >
+          <img src="/mobile.svg" alt="mobile" /> Anrufen
+        </a>
+        <a
+          class="flex items-center gap-2 justify-center py-2 rounded-full border-2 border-[#112546]"
+          href="#"
+        >
+          <img src="/phone2.svg" alt="phone" /> Anrufen
+        </a>
+        <a
+          class="flex items-center gap-2 justify-center py-2 rounded-full border-2 border-[#112546]"
+          href="#"
+        >
+          <img src="/mail2.svg" alt="mail" /> E-Mail
+        </a>
+      </div>
+    )
+  }
 </div>

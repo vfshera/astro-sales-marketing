@@ -1,7 +1,14 @@
 ---
 interface Props extends astroHTML.JSX.AnchorHTMLAttributes {}
 
-const props = Astro.props;
+const { class: className, ...props } = Astro.props;
 ---
 
-<a {...props} class="text-2xl"><slot /></a>
+<a
+  {...props}
+  class:list={[
+    "header-link text-right md:text-left underline md:no-underline uppercase md:normal-case md:text-2xl",
+    className,
+  ]}
+  ><slot />
+</a>

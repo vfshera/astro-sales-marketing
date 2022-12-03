@@ -1,0 +1,106 @@
+---
+import ApplicationCard from "./ApplicationCard.astro";
+---
+
+<section id="ApplicationStacks" class="relative mt-10 mb-24">
+  {
+    ["Werkstudent", "Quereinsteiger", "Kundenberater"].map((title) => (
+      <div class="stack cursor-pointer">
+        <ApplicationCard title={title} />
+      </div>
+    ))
+  }
+</section>
+
+<style>
+  .stack {
+    @apply hidden;
+  }
+  .stack:nth-child(1),
+  .stack:nth-child(2),
+  .stack:nth-child(3) {
+    @apply block;
+  }
+
+  .stack:nth-child(3) {
+    @apply z-0 top-0 relative -right-16 [filter:blur(2px)] py-2;
+  }
+
+  .drop {
+    animation: fadeIn 600ms forwards;
+  }
+  .enter {
+    animation: fadeInUp 600ms forwards;
+  }
+  .leave {
+    animation: fadeOutDown 500ms forwards;
+  }
+
+  @keyframes fadeIn {
+    from {
+      transform: translate3d(0, -10%, 0);
+      filter: blur(2px);
+    }
+
+    to {
+      transform: translate3d(0, 0, 0);
+      filter: blur(0px);
+    }
+  }
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translate3d(0, -10%, 0);
+      scale: 0.9;
+    }
+
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+      scale: 1;
+    }
+  }
+  @keyframes fadeOutDown {
+    from {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+      scale: 1;
+    }
+
+    to {
+      opacity: 0;
+      transform: translate3d(0, 50%, 0);
+      scale: 1.2;
+    }
+  }
+
+  .stack:nth-child(2) {
+    @apply z-[3] top-12 absolute left-10 -right-10 [filter:blur(2px)] py-2;
+  }
+  .stack:nth-child(1) {
+    @apply z-[5] top-24 absolute right-0 left-2;
+  }
+</style>
+
+<script>
+  function shuffle() {
+    const stackContainer = document.querySelector("#ApplicationStacks");
+    const firstEl = document.querySelector(".stack");
+
+    firstEl.classList.remove("drop");
+    firstEl.classList.remove("enter");
+    firstEl.classList.add("leave");
+
+    setTimeout(() => {
+      stackContainer.removeChild(stackContainer.firstElementChild);
+      stackContainer.firstElementChild.classList.add("drop");
+      stackContainer.appendChild(firstEl);
+      stackContainer.lastElementChild.classList.remove("leave");
+      stackContainer.lastElementChild.classList.add("enter");
+    }, 400);
+  }
+
+  document
+    .querySelectorAll(".stack")
+    .forEach((s) => s.addEventListener("click", shuffle));
+</script>

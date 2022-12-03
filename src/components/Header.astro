@@ -53,7 +53,7 @@ import HeaderLink from "./HeaderLink.astro";
     const opened = header.getAttribute("data-mobile-open") === "true";
 
     if (opened) {
-      header.;
+      header.setAttribute("data-mobile-open", "false");
     } else {
       header.setAttribute("data-mobile-open", "true");
     }

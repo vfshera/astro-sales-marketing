@@ -5,7 +5,7 @@ import Header from "@components/Header.astro";
 <section
   id="HeroWrapper"
   style="background-image: url('/images/hero.webp');"
-  class="h-screen md:h-[1117px]"
+  class="h-[812px] md:h-[1117px]"
 >
   <div
     class="hero-content text-white relative flex flex-col h-full w-full z-10"
@@ -13,21 +13,6 @@ import Header from "@components/Header.astro";
   >
     <Header />
 
-    <div class="upbtn absolute right-4 md:right-8 bottom-4 md:bottom-8">
-      <button>
-        <svg
-          class="h-9 md:h-12"
-          xmlns="http://www.w3.org/2000/svg"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          viewBox="0 0 50 50"
-          fill="#FFFFFF"
-        >
-          <path
-            d="M25 2C12.316406 2 2 12.316406 2 25C2 37.683594 12.316406 48 25 48C37.683594 48 48 37.683594 48 25C48 12.316406 37.683594 2 25 2 Z M 35.707031 28.707031C35.511719 28.902344 35.257813 29 35 29C34.742188 29 34.488281 28.902344 34.292969 28.707031L25 19.414063L15.707031 28.707031C15.316406 29.097656 14.683594 29.097656 14.292969 28.707031C13.902344 28.316406 13.902344 27.683594 14.292969 27.292969L24.292969 17.292969C24.683594 16.902344 25.316406 16.902344 25.707031 17.292969L35.707031 27.292969C36.097656 27.683594 36.097656 28.316406 35.707031 28.707031Z"
-            fill="#FFFFFF"></path>
-        </svg>
-      </button>
-    </div>
     <div class="px-5 md:px-20 lg:px-[214px] min-h-[50%] mt-auto">
       <h1
         class="font-bold text-4xl md:text-[75px] leading-[48px] md:leading-[90px]"
@@ -44,7 +29,7 @@ import Header from "@components/Header.astro";
 
       <a
         href="#"
-        class="font-['Comfortaa'] bg-white rounded-full text-base md:text-lg lg:text-xl text-blue px-5 md:px-12 py-2.5 md:py-5"
+        class="font-['Comfortaa'] bg-white rounded-full text-base md:text-lg lg:text-xl text-blue px-5 md:px-12 py-2 md:py-5"
         >BLITZ BEWERBUNG</a
       >
 
@@ -66,3 +51,46 @@ import Header from "@components/Header.astro";
     </div>
   </div>
 </section>
+
+<script>
+  // scroll handler
+  function scroll(old, des, actual) {
+    let easeInOutQuart = function (t) {
+      return t < 0.5 ? 8 * t * t * t * t : 1 - 8 * --t * t * t * t;
+    };
+    actual += 1;
+    let ease = easeInOutQuart(actual / 100);
+    let delta = des - old;
+    delta *= ease;
+    delta += old;
+    window.scrollTo(0, delta);
+    if (actual < 100) {
+      window.requestAnimationFrame(function () {
+        scroll(old, des, actual);
+      });
+    }
+  }
+  // handle click
+  function handleHash(e) {
+    e.preventDefault();
+
+    let scrollPadding = 100;
+    let link = e.target.getAttribute("href").substr(1);
+    let block = document.getElementById(link).offsetTop - scrollPadding;
+    let client = document.documentElement.scrollTop;
+
+    // if is link in the header
+    if ([...e.target.classList].includes("header-link")) {
+      document
+        .querySelector("#MainHeader")
+        .setAttribute("data-mobile-open", "false");
+    }
+    scroll(client, block, 0);
+  }
+  // getting hash links
+  window.addEventListener("DOMContentLoaded", () => {
+    [...document.querySelectorAll("a[href^='#']")].forEach((anchor) => {
+      anchor.addEventListener("click", handleHash);
+    });
+  });
+</script>

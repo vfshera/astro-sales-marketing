@@ -1,0 +1,61 @@
+---
+import { contacts } from "@data/data";
+import ContactCard from "./ContactCard.astro";
+---
+
+<section class="contact-accordion md:hidden">
+  {
+    contacts.map((contact) => (
+      <div
+        data-collapsed="true"
+        class="accordion border-b-2 border-gray-200 py-1 flex flex-col gap-2 "
+      >
+        <button class="text-2xl font-bold flex py-1 justify-between items-center w-full">
+          {" "}
+          {contact.headText}{" "}
+          <svg
+            class="h-7 transition-all"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewBox="0 0 30 30"
+            fill="#000000"
+          >
+            <path
+              d="M3,12v-2c0-0.386,0.223-0.738,0.572-0.904s0.762-0.115,1.062,0.13L15,17.708l10.367-8.482 c0.299-0.245,0.712-0.295,1.062-0.13C26.779,9.261,27,9.614,27,10v2c0,0.3-0.135,0.584-0.367,0.774l-11,9 c-0.369,0.301-0.898,0.301-1.267,0l-11-9C3.135,12.584,3,12.3,3,12z"
+              fill="#000000"
+            />
+          </svg>
+        </button>
+
+        <div class="accordion-content">
+          <ContactCard isAccordion={true} {...contact} />
+        </div>
+      </div>
+    ))
+  }
+</section>
+
+<style>
+  [data-collapsed="true"] .accordion-content {
+    @apply hidden;
+  }
+  [data-collapsed="false"] .accordion-content {
+    @apply block;
+  }
+</style>
+
+<script>
+  const accordion = [...document.querySelectorAll(".accordion")];
+
+  accordion.forEach((ac) => {
+    ac.children[0].addEventListener("click", () => {
+      const collapsed = ac.getAttribute("data-collapsed") === "true";
+
+      if (collapsed) {
+        ac.setAttribute("data-collapsed", "false");
+      } else {
+        ac.setAttribute("data-collapsed", "true");
+      }
+    });
+  });
+</script>
