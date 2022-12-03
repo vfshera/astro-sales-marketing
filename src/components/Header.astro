@@ -4,15 +4,19 @@ import HeaderLink from "./HeaderLink.astro";
 
 <header
   id="MainHeader"
-  class="px-5 lg:pl-8 lg:pr-16 pt-8 flex justify-between items-center"
+  data-mobile-open="false"
+  class="px-5 lg:pl-8 lg:pr-16 pt-8 flex relative justify-between items-center"
 >
   <a href="/"><img src="/images/logo.png" class="h-10 md:h-12" alt="Logo" /></a>
 
-  <button>
-    <img src="/menu.svg" class="h-5" alt="menu" />
+  <button id="menuToggle" class="md:hidden">
+    <img id="OpenIcon" src="/menu.svg" class="h-5" alt="menu" />
+    <img id="CloseIcon" src="/close.svg" class="h-5" alt="close" />
   </button>
 
-  <ul class="hidden md:flex items-center gap-6">
+  <ul
+    class="flex flex-col md:flex-row absolute right-5 top-24 md:static items-end md:items-center gap-6"
+  >
     <li>
       <HeaderLink href="#Überuns">Über uns</HeaderLink>
     </li>
@@ -30,3 +34,29 @@ import HeaderLink from "./HeaderLink.astro";
     </li>
   </ul>
 </header>
+
+<style>
+  [data-mobile-open="false"] ul {
+    @apply scale-y-0 md:scale-100;
+  }
+  [data-mobile-open="false"] button img#CloseIcon,
+  [data-mobile-open="true"] button img#OpenIcon {
+    @apply hidden;
+  }
+</style>
+
+<script>
+  const menuToggle = document.querySelector("#menuToggle");
+  const header = document.querySelector("#MainHeader");
+
+  function toggleMenu() {
+    const opened = header.getAttribute("data-mobile-open") === "true";
+
+    if (opened) {
+      header.;
+    } else {
+      header.setAttribute("data-mobile-open", "true");
+    }
+  }
+  menuToggle.addEventListener("click", toggleMenu);
+</script>
