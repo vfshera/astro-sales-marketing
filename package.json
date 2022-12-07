@@ -13,6 +13,7 @@
   "dependencies": {
     "@astrojs/image": "^0.12.0",
     "@astrojs/tailwind": "^2.1.3",
+    "@astrojs/vercel": "^2.3.5",
     "astro": "^1.6.12",
     "astro-compress": "^1.1.15",
     "astro-google-fonts-optimizer": "^0.2.2",
