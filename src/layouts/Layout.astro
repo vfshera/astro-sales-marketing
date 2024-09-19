@@ -13,7 +13,7 @@ export interface Props {
 const { title = SITE_NAME, description = SITE_DESCRIPTION } = Astro.props;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <!-- Global Metadata -->
@@ -40,8 +40,8 @@ const { title = SITE_NAME, description = SITE_DESCRIPTION } = Astro.props;
     />
 
     <script>
-      function scrollSmooth(old, des, actual) {
-        let easeInOutQuart = function (t) {
+      function scrollSmooth(old: number, des: number, actual: number) {
+        let easeInOutQuart = function (t: number) {
           return t < 0.5 ? 8 * t * t * t * t : 1 - 8 * --t * t * t * t;
         };
         actual += 1;
@@ -52,14 +52,14 @@ const { title = SITE_NAME, description = SITE_DESCRIPTION } = Astro.props;
         window.scrollTo(0, delta);
         if (actual < 100) {
           window.requestAnimationFrame(function () {
-            scroll(old, des, actual);
+            scrollSmooth(old, des, actual);
           });
         }
       }
-      document.querySelector("#scrollTop").addEventListener("click", () => {
+      document.querySelector("#scrollTop")?.addEventListener("click", () => {
         scrollSmooth(
           document.documentElement.scrollTop,
-          document.querySelector("body").offsetTop,
+          document.querySelector("body")!.offsetTop,
           0
         );
       });

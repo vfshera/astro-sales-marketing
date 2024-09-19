@@ -1,4 +1,4 @@
-/// <reference types="@astrojs/image/client" />
+/// <reference path="../.astro/types.d.ts" />
 interface IStage {
   title: string;
   imageUrl: string;
