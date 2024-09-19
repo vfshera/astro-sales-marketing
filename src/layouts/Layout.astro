@@ -10,8 +10,6 @@ export interface Props {
   description?: string;
 }
 
-console.log({ FIREBASE_PRIVATE_KEY: import.meta.env.FIREBASE_PRIVATE_KEY });
-
 const { title = SITE_NAME, description = SITE_DESCRIPTION } = Astro.props;
 ---
 
